@@ -14,8 +14,12 @@ gem 'certified'
 
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'oauth2'
+gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-asana'
 gem 'byebug'
+gem 'fb_graph'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

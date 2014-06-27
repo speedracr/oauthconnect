@@ -2,8 +2,15 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :authentications, :dependent => :delete_all
+
+  # from Facebook Omniauth tutorial http://blog.yangtheman.com/2012/02/09/facebook-connect-with-rails-omniauth-devise/
+  def apply_omniauth(auth)
+    self.email  = auth['extra']['raw_info']['email']
+    authentications.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
+  end
 
   def self.from_omniauth(auth)
     byebug
