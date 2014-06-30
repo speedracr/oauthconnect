@@ -15,7 +15,7 @@ class Asana
     get_user_data["data"]["workspaces"].first["id"]
   end
 
-  def create_task(name, workspace: default_workspace)
+  def create_task(name, workspace: default_workspace, assignee: "")
     HTTParty.post(
       api_url("tasks"), 
       headers: @headers,

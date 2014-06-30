@@ -1,4 +1,7 @@
 .container
   .row
-    %h2.logo
+    %h2.logo.col-md-6
       Task2Asana
+    .logout.pull-right
+      %a{ :href => destroy_user_session_path } Log out
+      %a{ :href => new_user_session_path } Log in      

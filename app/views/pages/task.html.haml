@@ -1,0 +1,11 @@
+.container
+  .row
+    %h2 Much form. So Asana
+    %p Post a task to Asana using these credentials
+    %ul
+      %li= current_user.email
+      %li= current_user.asana.get_user_data["data"]["name"]
+      %li Default workspace:
+      = current_user.asana.get_user_data["data"]["workspaces"].first["name"]
+
+  = render '/pages/form'

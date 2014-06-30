@@ -1,0 +1,13 @@
+.row
+  %form{:action => "pages/createtask"}
+    .field
+      %label{for: "assignee"}
+      %input{type: "hidden", name: "assignee"}/
+    .field
+      %label{for: "name"} Task name
+      %input{type: "text", name: "name"}/
+    .field
+      %label{:for => "workspace"} Workspace
+      %input{:type => "text", :name => "workspace"}/
+    .actions
+      %input{type: "submit", value: "Roger that"}/
