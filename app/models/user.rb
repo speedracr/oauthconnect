@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
-    byebug
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]

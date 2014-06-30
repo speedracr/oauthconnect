@@ -20,6 +20,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-asana'
 gem 'byebug'
 gem 'fb_graph'
+gem 'httparty'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
