@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     name        = params[:name]
     workspace   = params[:workspace]
     assignee    = params[:assignee]
-    current_user.asana.create_task(name, workspace)
+    current_user.asana.create_task(name, workspace: workspace)
     redirect_to root_path, notice: 'We have sent your task to Asana.'
   end
 
