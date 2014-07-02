@@ -3,12 +3,10 @@ Rails.application.routes.draw do
   get 'users/auth/:provider/callback' => 'authentications#create'
 
   get 'pages/home'
-  get 'pages/task'
-  get 'pages/createtask'
+  get 'tasks/new'
+  post 'tasks/create'
 
-  get 'task', to: 'pages#task'
+  get 'task', to: 'tasks#new'
   root 'pages#home'
-
-
   
 end

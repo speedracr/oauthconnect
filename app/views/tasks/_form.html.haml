@@ -1,0 +1,22 @@
+.row
+  .col-md-6
+    %form{action: "tasks/create", role: "form", method: "post"}
+      = hidden_field_tag :authenticity_token, form_authenticity_token
+      .form-group
+        %label{for: "assignee"}
+        %input{type: "hidden", name: "assignee", class: "form-control"}
+      .form-group
+        %label{for: ""}
+        %input{type: "radio", name: "wspace", value: "1234"}    
+        
+      .form-group
+        %label{for: "name"} Task name
+        %input{type: "text", name: "name", class: "form-control"}
+      .form-group
+        %label{:for => "workspace"} Workspace
+        %input{:type => "text", :name => "workspace", class: "form-control"}
+      .form-group
+        %label{for: "notes"} Task notes
+        %textarea{type: "textarea", name: "notes", style: "resize: vertical;", class: "form-control"}
+      .actions
+        %input{type: "submit", value: "Roger that", class: "btn btn-default"}

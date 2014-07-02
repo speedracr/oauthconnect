@@ -1,0 +1,22 @@
+.container
+  .row
+    %h2 Much form. So Asana
+    %p Post a task to Asana using these credentials
+    %ul
+      %li= current_user.email
+      %li= current_user.asana.get_user_data["data"]["name"]
+      %li Default workspace:
+      = current_user.asana.get_user_data["data"]["workspaces"].first["name"]
+    %p These are your workspaces:
+    - @workspaces.each do |wspace|
+      %ul
+        %li= wspace["name"]
+
+    %p Select your workspace
+    %select#wspace{:name => "wspace"}
+      - @workspaces.each do |selspace|
+        %option{:value => "123"} 
+          =selspace["name"]
+
+  .row
+  = render '/tasks/form' 
