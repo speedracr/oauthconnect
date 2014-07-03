@@ -9,7 +9,6 @@ class TasksController < ApplicationController
     @workspaces = current_user.asana.list_workspaces
   end
 
-
   def create
     name        = params[:name]
     workspace   = params[:workspace]

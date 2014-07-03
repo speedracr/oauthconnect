@@ -10,7 +10,9 @@
     %p These are your workspaces:
     - @workspaces.each do |wspace|
       %ul
-        %li= wspace["name"]
+        %li 
+          = wspace["name"]
+          = wspace["id"]
 
     %p Select your workspace
     %select#wspace{:name => "wspace"}

@@ -8,7 +8,14 @@ class Asana
   end
   
   def get_user_data
-    HTTParty.get(api_url("users/me"), headers: @headers)
+    @data ||= HTTParty.get(api_url("users/me"), headers: @headers)
+  end
+
+  def get_workspace_data(workspace_id, item)
+    t = Time.now
+    @workspace_data ||= HTTParty.get(api_url("workspaces/#{workspace_id}/#{item}"), headers: @headers)
+    puts "ran get_workspace_data, took #{Time.now - t}"
+    @workspace_data
   end
 
   def default_workspace
@@ -17,6 +24,10 @@ class Asana
 
   def list_workspaces
     get_user_data["data"]["workspaces"]
+  end
+
+  def list_projects(workspace)
+    
   end
 
   def default_assignee
@@ -39,7 +50,6 @@ class Asana
         "assignee" => get_user_data["data"]["id"],
         "notes" => tasknotes
       })
-    puts result.inspect
   end
 
 

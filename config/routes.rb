@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   get 'task', to: 'tasks#new'
   root 'pages#home'
+
+  get 'asana/workspaces/:workspace_id/projects' => "asana#projects"
   
 end

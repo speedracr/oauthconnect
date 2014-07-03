@@ -1,0 +1,13 @@
+.container
+  .row
+    %h2 So projects. Much Asana.
+    %p 
+      These are all projects in Workspace No.
+      = params[:workspace_id]
+
+
+    %ul
+      %li
+        = @projects.inspect
+
+    %p The end

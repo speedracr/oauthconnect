@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   end
 
   def asana
-    Asana.new(token)
+    @asana ||= Asana.new(token)
   end
 
     
